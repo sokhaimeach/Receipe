@@ -1,0 +1,38 @@
+<section class="receipt">
+    <hr width="100%">
+    <h1 class="title line">Receipt</h1>
+    <h1 class="title">SOKHAI SHOP</h1>
+    <div class="address line">
+        <div class="location">
+            <span>Address</span>
+            <span class="loc">{{this.receipt[0].address}}</span>
+        </div>
+        <div class="location">
+            <span>Date</span>
+            <span class="loc">{{this.receipt[0].date}}</span>
+        </div>
+        <div class="location">
+            <span>Manager</span>
+            <span class="loc">{{this.receipt[0].manager}}</span>
+        </div>
+    </div>
+    <div class="description line">
+        <div class="des-tap">
+            <span>Description</span>
+            <span class="price">Price</span>
+        </div>
+        @for(item of this.receipt[0].product; track item.descripttion) {
+            <div class="item">
+                <span class="name">{{item.descripttion}}</span>
+                <span class="price">${{item.price.toFixed(2)}}</span>
+            </div>
+        }
+    </div>
+    <div class="total">
+        <div class="total-label">Total:</div>
+        <div class="total-price">${{this.receipt[0].total.toFixed(2)}}</div>
+    </div>
+    <p class="thank-you line">Thank you</p>
+    <p class="barcode">{{ this.receipt[0].barcode }}</p>
+</section>
+
