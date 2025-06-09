@@ -42,15 +42,13 @@ export class Receipts {
         price: 3.40
       }
     ],
-    total: 0,
+    totals: () => {
+      let total_price = 0;
+      this.receipt[0].product.forEach(item => {
+        total_price += item.price;
+      });
+      return total_price;
+    },
     barcode: "1234567890123"
   }];
-  ngOnInit() {
-    let total_price = 0;
-    this.receipt[0].product.forEach((item) => {
-      total_price += item.price;
-    });
-    this.receipt[0].total = total_price;
-  }
-
 }
