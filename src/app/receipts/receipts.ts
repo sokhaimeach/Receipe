@@ -7,48 +7,39 @@ import { Component } from '@angular/core';
   styleUrl: './receipts.css'
 })
 export class Receipts {
-  receipt = [{
-    id: 1,
-    address: "122 St, Sensok, Phonm Penh",
-    date: '2025-06-05',
-    manager: "Sokhai",
-    product: [
-      {
-        descripttion: "Orange Juice",
-        price: 2.15
-      },
-      {
-        descripttion: "Apple",
-        price: 3.50
-      },
-      {
-        descripttion: "Tomato",
-        price: 2.40
-      },
-      {
-        descripttion: "Fish",
-        price: 6.99
-      },
-      {
-        descripttion: "Beef",
-        price: 12.49
-      },
-      {
-        descripttion: "Onion",
-        price: 1.25
-      },
-      {
-        descripttion: "Cheese",
-        price: 3.40
-      }
-    ],
-    totals: () => {
-      let total_price = 0;
-      this.receipt[0].product.forEach(item => {
-        total_price += item.price;
-      });
-      return total_price;
+  receipt = [
+    {
+      id: 1,
+      descripttion: "Orange Juice",
+      price: 2.15
     },
-    barcode: "1234567890123"
-  }];
+    {
+      id: 2,
+      descripttion: "Apple",
+      price: 3.50
+    },
+    {
+      id: 3,
+      descripttion: "Tomato",
+      price: 2.40
+    },
+    {
+      id: 4,
+      descripttion: "Fish",
+      price: 6.99
+    },
+    {
+      id: 5,
+      descripttion: "Beef",
+      price: 12.49
+    }
+  ];
+  cash = 50;
+  total() {
+    var total_price = 0;
+    for(let i = 0; i < this.receipt.length; i++){
+      total_price += this.receipt[i].price;
+    }
+    return total_price;
+  }
 }
