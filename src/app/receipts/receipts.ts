@@ -42,4 +42,5 @@ export class Receipts {
     }
     return total_price;
   }
+  bacode = '123 084 2463';
 }
